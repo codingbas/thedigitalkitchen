@@ -1,0 +1,63 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<div class="row card intro-card">
+    <div class="card-content intro-card-content center-align">
+        <h5 class="message">{{message|safe}}</h5>
+        <span class="intro">
+            <a>Taste from other cuisines! Or add your own creation.<br> Bon Appetit!
+        </span>
+    </div>
+    
+    <!-- Filter Dropdowns -->
+    <div class="row filter-row cookery-buttons center-align">
+        <h5 class="message">Search by:</h5>
+        <div class="col s12 m6 ">
+            <div class="filter-btn">
+            <a class='dropdown-button btn' href='#' data-activates='category_name'>Category</a>
+            <ul id="category_name" class="dropdown-content">
+                {% for category in categories %}
+                <li><a class="white-text">{{ category.category_name }}</a></li>
+                {% endfor %}
+            </ul>
+            </div>
+        </div>
+        <div class="col s12 m6">
+            <div class="filter-btn">
+            <a class='dropdown-button btn' href='#' data-activates='main_ingredient'>Main Ingredient</a>
+            <ul id="main_ingredient" class="dropdown-content">
+                {% for ingredient in main_ingredients %}
+                <li><a class="white-text">{{ ingredient.main_ingredient }}</a></li>
+                {% endfor %}
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cuisine Grid -->
+<div class="row">
+    {% for cuisine in cuisines %}
+    <div class="col s12 m6">
+        <div class="card small">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img src="{{ cuisine.cuisine_image }}" class="activator">
+            </div>
+            <div class="card-content">
+                <span class="card-title cuisine-heading activator">{{cuisine.cuisine_name}}<i class="fas fa-ellipsis-v right"></i></span>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title cuisine-heading">{{cuisine.cuisine_name}}<i class="fas fa-times right"></i></span>
+                <p>{{cuisine.cuisine_description}}</p>
+                <i class="fas fa-book"></i>
+                <a href="" class="waves-effect waves-light view-btn">View All {{cuisine.cuisine_name}} Recipes</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+{% endblock %}
