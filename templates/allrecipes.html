@@ -1,0 +1,64 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<div class="row">
+    <div class="col s12 m10 offset-m1 l8 offset-l2 card">
+        <div class="card-content center-align">
+            <h6 class="page-heading"><strong>All Recipes</strong></h6>
+            <p>{{ recipes_total }} recipes found </p>
+            <a href="{{ url_for('index') }}" class="home-btn">Back Home</a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s12">
+        {% for recipe in recipes %}
+        <div class="col s12 m6 l4">
+            <div class="card large">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img src="{{ recipe.image_url }}" class="activator">
+                </div>
+                <div class="card-content recipe-card">
+                    <span class="card-title recipe-heading activator">{{recipe.recipe_name}}<i class="fas fa-ellipsis-v right"></i></span>
+                    <p>{{recipe.recipe_description}}</p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title recipe-heading ">{{recipe.recipe_name}}<i class="fas fa-times right"></i></span>
+                    <div class="row recipe-info-all">
+                        <span><strong>Author: </strong>{{ recipe.author }}</span><br>
+                        <span><strong>Cuisine: </strong>{{ recipe.cuisine_name }}</span><br>
+                        <span><strong>Category: </strong>
+                            {% for category_name in recipe.category_name %}
+                                {% if category_name != "" %}
+                                <span>{{ category_name }},</span>
+                                {% else %}
+                                <span>None</span>
+                                {% endif %}
+                            {% endfor %}
+                        </span><br>
+                        <span><strong>Main Ingredient: </strong>{{ recipe.main_ingredient }}</span><br>
+                        <span><strong>Difficulty: </strong>{{ recipe.difficulty }}</span><br>
+                        <span><strong>Preparation Time: </strong>{{ recipe.prep_time }}</span><br>
+                        <span><strong>Cooking Time: </strong>{{ recipe.cook_time }}</span><br>
+                        <span><strong>Serves: </strong>{{ recipe.serves }}</span><br>
+                        <span><strong>Allergens: </strong>
+                            {% for allergen_name in recipe.allergen_name %}
+                                {% if allergen_name != "" %}
+                                <span>{{ allergen_name }},</span>
+                                {% else %}
+                                <span>None</span>
+                                {% endif %}
+                            {% endfor %}
+                        </span><br>
+                    </div>
+                    <a href="{{ url_for('get_recipe', recipe_id=recipe._id) }}" class="view-btn">View Recipe</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
