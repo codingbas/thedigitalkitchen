@@ -19,6 +19,17 @@ def get_index():
     categories=mongo.db.categories.find(),
     main_ingredients=mongo.db.main_ingredients.find(),
     cuisines=mongo.db.cuisines.find())
+
+@app.route('/all_recipes')
+def all_recipes():
+    """
+    Display all recipes on one page
+    """
+    recipes = mongo.db.recipes.find()
+    recipes_total = recipes.count()
+    return render_template("allrecipes.html",
+                            recipes_total=recipes_total,
+                            recipes=recipes)
     
 @app.route('/get_recipes')
 def get_recipes():
