@@ -30,7 +30,43 @@ def all_recipes():
     return render_template("allrecipes.html",
                             recipes_total=recipes_total,
                             recipes=recipes)
-    
+
+@app.route('/recipes_by_category/<category_name>')
+def recipes_by_category(category_name):
+    """
+    Get all recipes of a chosen category and display
+    these recipes on one page
+    """
+    # Counts total amount of chosen category recipes
+    recipes_total = mongo.db.recipes.find({
+        "category_name": category_name
+    }).count()
+    return render_template(
+        "recipes_by_category.html",
+        recipes=mongo.db.recipes.find({"category_name": category_name}),
+        categories=mongo.db.categories.find(),
+        category_name=category_name,
+        recipes_total=recipes_total)
+
+
+@app.route('/recipes_by_main/<main_ingredient>')
+def recipes_by_main(main_ingredient):
+    """
+    Get all recipes of a chosen ingredient and display
+    these recipes on one page
+    """
+    # Counts total amount of chosen ingredient recipes
+    recipes_total = mongo.db.recipes.find({
+        "main_ingredient": main_ingredient
+    }).count()
+    return render_template(
+        "recipes_by_main.html",
+        recipes=mongo.db.recipes.find({"main_ingredient": main_ingredient}),
+        main_ingredients=mongo.db.main_ingredients.find(),
+        main_ingredient=main_ingredient,
+        recipes_total=recipes_total)
+
+  
 @app.route('/get_recipes')
 def get_recipes():
     return render_template("recipes.html", recipes=mongo.db.recipes.find())
