@@ -17,16 +17,28 @@
             <nav class="nav-wrapper">
                 <a class="digital-kitchen left">The Digital Kitchen</a>
                 <ul class="right hide-on-med-and-down nav-links">
-                    <li><a class="fas fa-home"></i>Home</a></li>
-                    <li><a href="{{ url_for('all_recipes') }}"><i class="fas fa-utensils"></i>All Recipes</a></li>
-                    <li><a class="fas fa-plus"></i>Add Recipe</a></li>
-                    <li><a class="far fa-address-book"></i>Manage Recipes</a></li>
+                    <li><a href=""><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href=""><i class="fas fa-utensils"></i>All Recipes</a></li>
+                    {% if 'username' in session %}
+                    <li><a href=""><i class="fas fa-plus"></i>Add Recipe</a></li>
+                    <li><a href=""><i class="far fa-address-book"></i>My Recipes</a></li>
+                    <li><a href=""><i class="fas fa-sign-in-alt"></i>Sign Out</a></li>
+                    {% else %}
+                    <li><a href=""><i class="fas fa-sign-in-alt"></i>Sign In</a></li>
+                    <li><a href=""><i class="fas fa-user-plus"></i>Register</a></li>
+                    {% endif %}
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                    <li><a class="fas fa-home"></i>Home</a></li>
-                    <li><a class="fas fa-utensils"></i>All Recipes</a></li>
-                    <li><a class="fas fa-plus"></i>Add Recipe</a></li>
-                    <li><a class="far fa-address-book"></i>Manage Recipes</a></li>
+                    <li><a href=""><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href=""><i class="fas fa-utensils"></i>All Recipes</a></li>
+                    {% if 'username' in session %}
+                    <li><a href=""><i class="fas fa-plus"></i>Add Recipe</a></li>
+                    <li><a href=""><i class="far fa-address-book"></i>My Recipes</a></li>
+                    <li><a href=""><i class="fas fa-sign-in-alt"></i>Sign Out</a></li>
+                    {% else %}
+                    <li><a href=""><i class="fas fa-sign-in-alt"></i>Sign In</a></li>
+                    <li><a href=""><i class="fas fa-user-plus"></i>Register</a></li>
+                    {% endif %}
                 </ul>
                 <a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="mobile-btn fas fa-align-justify"></i></a>
             </nav>
