@@ -8,7 +8,7 @@
         <div class="card-content center-align">
             <h6 class="page-heading"><strong>All {{ main_ingredient }} Recipes</strong></h6>
             <p>{{ recipes_total }} {{ main_ingredient }} recipes found </p>
-            <a href="" class="home-btn">Return To Homepage</a>
+            <a href="{{ url_for('index') }}" class="home-btn">Return To Homepage</a>
         </div>
     </div>
 </div>
@@ -30,23 +30,19 @@
                     <span class="card-title recipe-heading ">{{recipe.recipe_name}}<i class="fas fa-times right"></i></span>
                     <div class="row recipe-info-all">
                         <span><strong>Cuisine: </strong>{{ recipe.cuisine_name }}</span><br>
-                        <span><strong>Category: </strong>
-                        {% for category_name in recipe.category_name %}
-                            {% if category_name != "" %}
-                            <span>{{ category_name }},</span>
-                            {% else %}
-                            <span>None</span>
-                            {% endif %}
-                        {% endfor %}
-                        </span><br>
+                        <span><strong>Category: </strong>{{ recipe.category_name }}</span><br>
                         <span><strong>Cooking Time: </strong>{{ recipe.cook_time }}</span><br>
                     </div>
-                    <i class="fas fa-book"></i><a href="" class="view-btn">View Recipe</a>
+                    <i class="fas fa-angle-double-right"></i><a href="{{ url_for('get_recipe', recipe_id=recipe._id) }}" class="view-btn">View Recipe</a>
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
 {% endblock %}

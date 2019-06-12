@@ -29,36 +29,19 @@
                     <div class="row recipe-info-all">
                         <span><strong>Author: </strong>{{ recipe.author }}</span><br>
                         <span><strong>Cuisine: </strong>{{ recipe.cuisine_name }}</span><br>
-                        <span><strong>Category: </strong>
-                            {% for category_name in recipe.category_name %}
-                                {% if category_name != "" %}
-                                <span>{{ category_name }},</span>
-                                {% else %}
-                                <span>None</span>
-                                {% endif %}
-                            {% endfor %}
-                        </span><br>
+                        <span><strong>Category: </strong>{{ recipe.category_name }}</span><br>
                         <span><strong>Main Ingredient: </strong>{{ recipe.main_ingredient }}</span><br>
-                        <span><strong>Difficulty: </strong>{{ recipe.difficulty }}</span><br>
-                        <span><strong>Preparation Time: </strong>{{ recipe.prep_time }}</span><br>
-                        <span><strong>Cooking Time: </strong>{{ recipe.cook_time }}</span><br>
-                        <span><strong>Serves: </strong>{{ recipe.serves }}</span><br>
-                        <span><strong>Allergens: </strong>
-                            {% for allergen_name in recipe.allergen_name %}
-                                {% if allergen_name != "" %}
-                                <span>{{ allergen_name }},</span>
-                                {% else %}
-                                <span>None</span>
-                                {% endif %}
-                            {% endfor %}
-                        </span><br>
                     </div>
-                    <a href="" class="view-btn">View Recipe</a>
+                    <i class="fas fa-angle-double-right"></i><a href="{{ url_for('get_recipe', recipe_id=recipe._id) }}" class="view-btn">View Recipe</a>
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
 {% endblock %}

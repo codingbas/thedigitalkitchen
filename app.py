@@ -4,6 +4,8 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId 
 
 app = Flask(__name__)
+app.secret_key = 'some_secret'
+
 app.config["MONGO_DBNAME"] = 'digital_kitchen'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 

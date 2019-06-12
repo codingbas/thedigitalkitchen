@@ -1,3 +1,419 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
+/*-- HTML and Body --*/
+
+html {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    overflow: auto;
+    
+}
+
+#wrapper {
+    min-height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #d3d3d3;
+}
+
+#content {
+    padding-bottom: 60px;
+    margin-top: 15px;
+}
+
+.container {
+    width: 90% !important;
+}
+
+/*-- Navigation --*/
+
+nav {
+    margin-bottom: 25px;
+}
+
+.nav-wrapper {
+    background-color: black;
+}
+
+.digital-kitchen {
+    font-size: 30px;
+    position: absolute;
+    display: inline-block;
+    padding-left: 10px;
+    color: orange;
+    font-family: 'Montserrat', serif;
+}
+
+.github {
+    margin-left: 10px;
+    color: #fafafa;
+}
+
+#copyright {
+    color: #fafafa;
+    margin-top: 14px;
+    margin-bottom: -5px;
+    font-size: 20px;
+}
+
+nav i {
+    padding-right: 15px;
+    margin-top: 5px;
+    font-size: 10px;
+}
+
+#sidenav-overlay {
+  z-index: 1 !important;
+}
+
+/*-- Images --*/
+
+.card-image {
+    width: 100%;
+    height: auto;
+}
+
+.getrecipe-image {
+    width:75%;
+    height: auto;
+    margin-top: 15px;
+}
+
+
+.info-card {
+    margin-top: 15px;
+}
+
+/*-- Forms and Buttons --*/
+
+.btn {
+    color: black !important;
+}
+
+.digital-buttons a, .digital-buttons button {
+    background-color: orange;
+    margin-bottom: 5px;
+}
+
+.digital-buttons a:hover,
+.digital-buttons button:hover,
+.digital-buttons a:active,
+.digital-buttons button:active,
+.digital-buttons a:link,
+.digital-buttons button:link,
+.digital-buttons a:visited,
+.digital-buttons button:visited {
+    background-color: orange;
+}
+
+i {
+    padding-right: 10px;
+}
+
+.nav-links i {
+    height: 10px;
+}
+
+.cuisine-heading i {
+    font-size: 15px;
+}
+
+.recipe-heading i {
+    font-size: 15px;
+}
+
+.home-btn  {
+    font-weight: bold;
+    padding: 0;
+    font-size: 18px;
+    color: #034f84;
+}
+
+.delete-btn {
+    font-weight: bold;
+    padding: 0;
+    font-size: 15px;
+    color: red;
+}
+
+.edit-btn {
+    font-weight: bold;
+    padding: 0;
+    font-size: 15px;
+    color: #034f84;
+}
+
+.return-btn {
+    font-weight: bold;
+    padding: 0;
+    font-size: 18px;
+    color: #034f84;
+}
+
+.mobile-btn {
+    padding: 0;
+    margin: 0;
+}
+
+.view-btn {
+    font-weight: bold;
+    padding: 0;
+    font-size: 15px;
+    color: #034f84;
+}
+
+.intro {
+    font-size: 16px;
+}
+
+.intro a, .intro button {
+    color: #000;
+    font-size: larger !important;
+    font-style: oblique;
+}
+
+.intro a:hover,
+.intro button:hover,
+.intro a:active,
+.intro button:active,
+.intro a:link,
+.intro button:link,
+.intro a:visited,
+.intro button:visited {
+    color: #000;
+    font-size: larger !important;
+    font-style: oblique;
+}
+
+ /* label focus color */
+   .input-field input[type=text]:focus + label,
+   .input-field input[type=url]:focus + label
+   .input-field textarea:focus:not([readonly]) + label,
+   .input-field input[type=checkbox]:focus + label:before,
+   .input-field input[type=checkbox]:focus + label:after,
+   .input-field input[type=password]:focus + label {
+     color: #000 !important;
+}
+
+.input-field input[type="checkbox"]:checked+label::before {
+    top: -4px;
+    left: -5px;
+    width: 12px;
+    height: 22px;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    -webkit-transform: rotate(40deg);
+    transform: rotate(40deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+}
+
+.input-field input[type="checkbox"]+label::before,
+[type="checkbox"]:not(.filled-in)+label::after {
+
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    z-index: 0;
+    border: 2px solid #5a5a5a;
+    border-top-color: rgb(90, 90, 90);
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-right-color: rgb(90, 90, 90);
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-bottom-color: rgb(90, 90, 90);
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-left-color: rgb(90, 90, 90);
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-radius: 1px;
+    margin-top: 2px;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+/* label underline focus color */
+   .input-field input[type=text]:focus,
+   .input-field input[type=url]:focus,
+   .input-field textarea:focus,
+   .input-field input[type=checkbox]:focus,
+   .input-field input[type=password]:focus {
+     border-bottom: 1px solid #000 !important;
+     box-shadow: 0 1px 0 0 #000 !important;
+   }
+
+.dropdown-content li > span {
+    color: #000 !important;
+    font-size: 12px !important;
+}
+
+#back-to-top i {
+    padding-left: 10px;
+    background-color: orange;
+    color: black;
+}
+
+.btn-floating {
+    border-color: #023F69 !important;
+}
+
+/*-- Cards --*/
+
+.recipe-card {
+    overflow: visible !important;
+}
+
+/*-- Message --*/
+
+.message {
+    font-family:'Montserrat', serif;
+}
+
+/*-- Headings --*/
+
+.page-heading {
+    font-family:'Montserrat', serif;
+    font-size: 35px;
+}
+
+.cuisine-heading {
+    font-family:'Montserrat', serif;
+    font-size: 20px;
+}
+
+.recipe-heading {
+    font-family:'Montserrat', serif;
+    font-size: 20px !important;
+}
+
+.getrecipe-heading {
+    font-family:'Montserrat', serif;
+    font-size: 25px;
+}
+
+/*-- Home Styles --*/
+
+.cuisine-description {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.card-reveal a {
+    font-weight: bold;
+    padding: 0;
+}
+
+.recipe-info-all {
+    padding-left: 12px;
+    padding-top: 10px;
+}
+
+.difficulty-links {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.category-links {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.intro-card .intro-card-content {
+    padding: 10px !important;
+    margin-top: 15px;
+}
+
+/*-- Filters --*/
+
+.center-btn {
+    text-align: center;
+}
+
+.filter-row {
+    padding: 5px;
+    margin-bottom: 5px !important;
+}
+
+.filter-btn {
+    padding: 5px;
+}
+
+
+/*-- Media Queries --*/
+
+@media (min-width: 900px) and (max-width: 1440px) {
+    .filter {
+       padding: 10px;
+    }
+}
+
+/*-- Galaxy Note 3 --*/
+
+@media (min-width: 360px) and (max-width: 640px) {
+    .digital-kitchen {
+        font-size: 20px;
+        position: absolute;
+        display: inline-block;
+        padding-left: 20px;
+        color: orange;
+        font-family: 'Montserrat', serif;
+    }
+    
+    .page-heading {
+        font-size: 23px;
+    }
+    
+    .recipe-heading {
+        font-size: 20px !important;
+    }
+}
+
+/*-- Nokia 8110 4G --*/
+
+@media (min-width: 240px) and (max-width: 320px) {
+    .digital-kitchen {
+        font-size: 15px;
+        position: absolute;
+        display: inline-block;
+        padding-left: 10px;
+        color: orange;
+        font-family: 'Montserrat', serif;
+    }
+    
+    .recipe-heading {
+        font-size: 15px !important;
+    }
+    
+    .page-heading {
+        font-size: 18px;
+    }
+    
+    .cuisine-heading {
+    font-size: 15px !important;
+    }
+    
+}
+
+
+
 

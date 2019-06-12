@@ -1,0 +1,65 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<!-- First Card -->
+<div class="row center-align card">
+    <div class="col s12 m6 l6 ">
+        <div class="card-content info-card">
+            <div class="row">
+                <span class="getrecipe-heading"><strong>{{ recipe.recipe_name }}</strong></span><br>
+                <strong>Created by: {{ recipe.author }}</strong>
+                <div class="card-content">
+                    <p>{{ recipe.recipe_description }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="recipe-info">
+                    <span><strong>Category: </strong>{{ recipe.category_name }}</span><br>
+                </div>
+                <div class="recipe-info">
+                    <span><strong>Main Ingredient: </strong>{{ recipe.main_ingredient }}</span>
+                </div>
+                <div class="recipe-info">
+                    <span><strong>Cooking Time: </strong>{{ recipe.cook_time }}</span>
+                </div>
+                <a href="{{ url_for('index') }}" class="home-btn">Home</a>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m6 l6">
+        <div class="card-content row">
+            <img src="{{ recipe.image_url }}" class="getrecipe-image circle responsive-img">
+        </div>
+    </div>
+</div>
+
+<!-- Second Card -->
+<div class="row card">
+    <div class="col s12 m6 l6">
+        <div class="card-content center-align">   
+            <span class="getrecipe-heading"><strong>Ingredients</strong></span>
+            <ul>
+                {% for ingredient in ingredient_split %}
+                <li><span>{{ ingredient }}</span></li>
+                {% endfor %}
+            </ul>  
+        </div>
+    </div>
+    <div class="col s12 m6 l6">
+        <div class="card-content">
+            <span class="getrecipe-heading"><strong>Method</strong></span>    
+            <ul>
+                {% for method in method_split %}
+                    <li><span>{{ method }}</span></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+{% endblock %}

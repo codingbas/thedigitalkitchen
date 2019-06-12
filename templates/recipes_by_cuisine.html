@@ -4,10 +4,10 @@
 
 <!-- Heading -->
 <div class="row">
-    <div class="card col s10 offset-s1 m6 offset-m3">
+    <div class="col s8 offset-s2 card">
         <div class="card-content center-align">
-            <h4 class="message">{{message|safe}}</h4>
-            <p>{{ recipes_total }} recipes found </p>
+            <h6 class="page-heading"><strong>All {{cuisine_name}} Recipes</strong></h6>
+            <p>{{ recipes_total }} {{ cuisine_name }} recipes found </p>
             <a href="{{ url_for('index') }}" class="home-btn">Return To Homepage</a>
         </div>
     </div>
@@ -16,36 +16,31 @@
 <!-- Recipes Grid -->
 <div class="row">
     <div class="col s12">
-        {% for recipe in user_recipes %}
+        {% for recipe in recipes %}
         <div class="col s12 m6 l4">
             <div class="card large">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img src="{{ recipe.image_url }}" class="activator">
                 </div>
                 <div class="card-content">
-                    <span class="card-title recipe-heading">{{recipe.recipe_name}}</span>
+                    <span class="card-title recipe-heading activator">{{recipe.recipe_name}}<i class="fas fa-ellipsis-v right"></i></span>
                     <p>{{recipe.recipe_description}}</p>
                 </div>
                 <div class="card-reveal">
-                    <span class="card-title recipe-heading ">{{recipe.recipe_name}}</span>
+                    <span class="card-title cuisine-heading ">{{recipe.recipe_name}}<i class="fas fa-times right"></i></span>
                     <div class="row recipe-info-all">
-                        <p>{{recipe.recipe_description}}</p>
-                        <span><strong>Cuisine: </strong>{{ recipe.cuisine_name }}</span><br>
+                        <span><strong>Author: </strong>{{ recipe.author }}</span><br>
                         <span><strong>Category: </strong>{{ recipe.category_name }}</span><br>
                         <span><strong>Main Ingredient: </strong>{{ recipe.main_ingredient }}</span><br>
                         <span><strong>Cooking Time: </strong>{{ recipe.cook_time }}</span><br>
                     </div>
-                    <ul>
-                        <li><i class="fas fa-angle-double-right"></i><a href="{{url_for('get_recipe', recipe_id=recipe._id, username=session['username'])}}" class="view-btn">View Recipe</a></li>
-                        <li><i class="fas fa-pencil-alt"></i><a href="{{url_for('edit_recipe', recipe_id=recipe._id, username=session['username'])}}" class="edit-btn">Edit Recipe</a></li>
-                        <li><i class="fas fa-ban"></i><a href="{{url_for('delete_recipe', recipe_id=recipe._id, username=session['username'])}}" class="delete-btn">Delete Recipe</a></li>
-                    </ul>
+                    <i class="fas fa-angle-double-right"></i><a href="{{ url_for('get_recipe', recipe_id=recipe._id) }}" class="view-btn">View Recipe</a>
                 </div>
             </div>
-        </div>    
+        </div>
         {% endfor %}
     </div>
-</div> 
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

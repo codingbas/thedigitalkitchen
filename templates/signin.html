@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<div class="row card">
+    <div class="card-content">
+        <h3 class="center-align message">Sign In</h3>
+        <h5 class="center-align">{{ message|safe }}</h5>
+        <form class="col s12" action="{{ url_for('signin') }}" method="POST">
+            <div class="row">
+                <!-- Username Input Field -->
+                <div class="input-field col s12">
+                    <input type="text" id="username" name="username" class="validate" required>
+                    <label for="username">Username</label>
+                </div>
+                <!-- Password Input Field -->
+                <div class="input-field col s12">
+                    <input type="password" id="password" name="password" class="validate" required>
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center-align digital-buttons">
+                    <button class="btn waves-effect waves-light" type="submit" name="action"><i class="fas fa-sign-in-alt left"></i>Sign In</button>
+                    <a class="btn waves-effect waves-light" href="{{url_for('register')}}"><i class="fas fa-user-plus left"></i>Register Here</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+{% endblock %}
