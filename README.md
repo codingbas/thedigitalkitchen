@@ -185,3 +185,7 @@ I would like to credit Luigi van der Plas, the tutors and my mentor Chris Zielin
 ## Media ## 
 All images used in this application are obtained from [BBC Goodfood](https://www.bbcgoodfood.com/ "BBC Goodfood").
 
+## Important Note ##
+The commits and pushes on GitHub needs some explaination. In the beginning i committed some steps and after i realized I didn't commit for a long time i pushed a huge amount of code. Then, because i am a junior and thought Google is your best friend, i wanted to delete the repo and start all over because i thought that would look nicer. 
+I deleted my repo and made a new one. That's why it says 'Initial Commit' later then the odd commits, i didn't know that.
+Sorry for this and it won't happen in the future. It is a big lesson to always commit the steps. 
